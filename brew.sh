@@ -41,9 +41,10 @@ brew install gnupg
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
 brew install grep
-brew install openssh
+# skip openssh in order to use keychain
+#brew install openssh
 brew install screen
-brew install php
+#brew install php
 brew install gmp
 
 # Install font tools.
@@ -51,32 +52,6 @@ brew tap bramstein/webfonttools
 brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
-
-# Install some CTF tools; see https://github.com/ctfs/write-ups.
-brew install aircrack-ng
-brew install bfg
-brew install binutils
-brew install binwalk
-brew install cifer
-brew install dex2jar
-brew install dns2tcp
-brew install fcrackzip
-brew install foremost
-brew install hashpump
-brew install hydra
-brew install john
-brew install knock
-brew install netpbm
-brew install nmap
-brew install pngcheck
-brew install socat
-brew install sqlmap
-brew install tcpflow
-brew install tcpreplay
-brew install tcptrace
-brew install ucspi-tcp # `tcpserver` etc.
-brew install xpdf
-brew install xz
 
 # Install other useful binaries.
 brew install ack
@@ -97,5 +72,41 @@ brew install tree
 brew install vbindiff
 brew install zopfli
 
+# Additional binaries
+brew install openjdk
+brew install maven
+brew install jenv
+brew install ansible
+brew install docker
+brew install go
+brew install hexedit
+brew install jq
+brew install kcat
+brew install kubernetes-cli
+brew install openshift-cli
+brew install python
+
+# Install casks
+brew install --cask sourcetree
+brew install --cask sublime-text
+brew install --cask dbvisualizer
+brew install --cask robo3t
+brew install --cask iterm2
+brew install --cask sublime-text
+brew install --cask intellij-idea-ce
+brew install --cask virtualbox
+brew install --cask docker
+brew install --cask flux
+brew install --caks spectacle
+brew install --cask slack
+brew install --cask spotify
+brew install --cask whatsapp
+
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# jEnv setup
+eval "$(jenv init -)"
+jenv enable-plugin maven
+jenv enable-plugin export
+for version in /Library/Java/JavaVirtualMachines/*/; do jenv add ${version}Contents/Home/; done
