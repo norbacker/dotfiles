@@ -54,5 +54,7 @@ complete -W "NSGlobalDomain" defaults;
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
 # Init jEnv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if which jenv &> /dev/null; then
+	export PATH="$HOME/.jenv/bin:$PATH"
+	eval "$(jenv init -)"
+fi
